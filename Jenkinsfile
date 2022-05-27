@@ -15,7 +15,7 @@ pipeline {
         }
         stage('3rd stage') {
             steps {
-                echo "This stage is inside of my 2nd branch"
+                echo "This stage is inside of my"
             }
         }
     }
