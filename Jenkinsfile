@@ -8,6 +8,7 @@ pipeline {
         stage ('Running with Environments') {
             steps{
                 script{
+                    // this is for dev environment
                     if (params.env == 'dev'){
                         echo 'This is my Dev Environmet'
                         echo 'I am running in Dev Evnironment'
