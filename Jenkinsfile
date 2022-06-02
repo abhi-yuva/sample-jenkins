@@ -22,8 +22,8 @@ pipeline {
                     }
 
                     if (params.env == 'prod'){
-                        echo  "${params.env}"
-                      //  echo 'I am running in'+ ${params.env} + 'Evnironment'
+                        echo  " this is my ${params.env} Environment"
+                        echo  "I am running in ${params.env} Evnironment"
 
                     }
                 }
