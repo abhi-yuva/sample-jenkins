@@ -30,4 +30,17 @@ pipeline {
             }
         }
     }
+    post {
+        success{
+            script{
+                echo "My ${params.env} Build Was Sucess"
+            }
+        }
+
+        failure{
+            script{
+                echo "My ${params.env} Build Was Failed"
+            }
+        }
+    }
 }
