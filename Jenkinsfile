@@ -2,29 +2,29 @@ pipeline {
     agent any
     
     parameters {
-        choice choices: ['dev','stage','prod'], description: 'My Environments', name: 'Environment'
+        choice choices: ['dev','stage','prod'], description: 'My Environments', name: 'env'
     }
 
-    stages {
-        stage('First Stage') {
-            steps {
-                echo "this is my frist stage"
-            }
-        }
+    stage ('Running with Environments') {
+        steps{
+            script{
+                if (params.env == 'dev'){
+                    echo 'This is my Dev Environmet'
+                    echo 'I am running in Dev Evnironment'
 
-        stage('2nd stage') {
-            steps {
-                echo "this is my Second stage"
-            }
-        }
-        stage('3rd stage') {
-            steps {
-                echo "this is my Second stage"
-            }
-        }
-        stage('4th stage') {
-            steps {
-                echo "this is my Second stage"
+                }
+
+                if (params.env == 'stage'){
+                    echo 'This is my stage Environmet'
+                    echo 'I am running in stage Evnironment'
+
+                }
+
+                if (params.env == 'prod'){
+                    echo 'This is my Prod Environmet'
+                    echo 'I am running in Prod Evnironment'
+
+                }
             }
         }
     }
