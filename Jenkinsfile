@@ -33,16 +33,10 @@ pipeline {
         }
     }
     post {
-        success{
-            script{
-                echo "My ${params.env} Build Was Sucess"
+        always{
+                emailext body: 'Jenkins Notification',
+                subject: 'Regarding Buil Notification',
+                to: 'itsmeurabhi@gmail.com'
             }
         }
-
-        failure{
-            script{
-                echo "My ${params.env} Build Was Failed"
-            }
-        }
-    }
 }
