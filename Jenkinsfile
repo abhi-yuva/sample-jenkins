@@ -31,12 +31,11 @@ pipeline {
                 }
             }
         }
-    }
-    post {
-        always{
-                emailext body: 'Jenkins Notification',
-                subject: 'Regarding Buil Notification',
-                to: 'itsmeurabhi@gmail.com'
+        stage ('Trigger other Job') {
+            steps {
+                build job: "my-first-job"
+
             }
         }
+    }
 }
