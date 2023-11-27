@@ -9,18 +9,18 @@ pipeline {
             steps{
                 script{
                     // this is for dev environment
-                    // if (params.env == 'dev'){
-                    //     echo 'This is my'+ ${params.env}+ 'Environmet'
-                    //     echo 'I am running in'+ ${params.env} + 'Evnironment'
+                    if (params.env == 'dev'){
+                        echo  " this is my ${params.env} Environment"
+                        echo  "I am running in ${params.env} Evnironment"
 
-                    // }
+                    }
 
-                    // // this is for stage environment
-                    // if (params.env == 'stage'){
-                    //     echo 'This is my'+ ${params.env}+ 'Environmet'
-                    //     echo 'I am running in'+ ${params.env} + 'Evnironment'
+                    // this is for stage environment
+                    if (params.env == 'stage'){
+                        echo  " this is my ${params.env} Environment"
+                        echo  "I am running in ${params.env} Evnironment"
 
-                    // }
+                    }
 
                     // this is for prod environment
                     if (params.env == 'prod'){
@@ -31,12 +31,11 @@ pipeline {
                 }
             }
         }
-    }
-    post {
-        always{
-                emailext body: 'Jenkins Notification',
-                subject: 'Regarding Buil Notification',
-                to: 'itsmeurabhi@gmail.com'
+        stage ('Trigger other Job') {
+            steps {
+                build job: "my-first-job"
+
             }
         }
+    }
 }
