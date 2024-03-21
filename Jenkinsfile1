@@ -13,12 +13,6 @@ pipeline {
                 echo "this is my Second stage"
             }
         }
-
-        stage('Third Stage') {
-              steps {
-                  echo "this is my Third stage"
-              }
-          }
     
     }
 }
